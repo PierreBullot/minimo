@@ -1,0 +1,38 @@
+body{
+	
+}
+
+footer {
+	background-color:#F0F0F0;
+}
+
+footer a {
+	font-family: 'Playfair Display', serif;
+	color:black;
+	margin-right:0.5em;
+}
+
+.menu {
+	text-transform:uppercase;
+	font-family: 'Playfair Display', serif;
+	text-align:right;
+}
+
+.menu a {
+	margin-left:4rem;
+	color:#626262;
+}
+
+.top-bar {
+	margin-left:5%;
+	margin-right:5%;
+}
+
+.webicon:hover {
+	margin-right:0.5em;
+}
+
+
+#social-media {
+	margin-right:4%;
+}

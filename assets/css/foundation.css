@@ -5,6 +5,8 @@
  * foundation.zurb.com
  * Licensed under MIT Open Source
  */
+
+ 
 @media print, screen and (min-width: 40em) {
   .reveal, .reveal.tiny, .reveal.small, .reveal.large {
     right: auto;
@@ -3439,9 +3441,10 @@ select {
   .menu a,
   .menu .button {
     line-height: 1;
+    color:#626262;
     text-decoration: none;
     display: block;
-    padding: 0.7rem 1rem; }
+    padding: 0.7rem 0rem; }
   .menu input,
   .menu select,
   .menu a,
@@ -3648,8 +3651,8 @@ select {
           -ms-flex-pack: start;
               justify-content: flex-start; }
   .menu .menu-text {
-    padding: 0.7rem 1rem;
-    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 2em;
     line-height: 1;
     color: inherit; }
 
@@ -5386,7 +5389,7 @@ a.thumbnail {
           flex-wrap: wrap; }
   .top-bar,
   .top-bar ul {
-    background-color: #e6e6e6; }
+    background-color: #fefefe; }
   .top-bar input {
     max-width: 200px;
     margin-right: 1rem; }
