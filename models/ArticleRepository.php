@@ -25,7 +25,7 @@ class ArticleRepository extends Repository
 	
 	public function getArticles()
 	{
-		$req = $this->_db->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT 0, 5');
+		$req = $this->_db->query('SELECT id, post_author, post_title, post_content, post_status, post_name, post_category, DATE_FORMAT(post_date, \'%d/%m/%Y à %Hh%imin%ss\') AS post_date_fr FROM posts WHERE post_type="article" ORDER BY post_date DESC LIMIT 0, 5');
 		
 		return $req;
 	}

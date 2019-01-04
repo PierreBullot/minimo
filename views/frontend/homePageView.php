@@ -1,34 +1,48 @@
-<?php $title = 'Minimø'; ?>
+<?php $title = 'Minimø - Home'; ?>
 
 <?php ob_start(); ?>
-<!--
-	<h1>Mon super blog !</h1>
-	<p>Derniers billets du blog :</p>
--->
 
+
+<div class="grid-container">
 	<?php
-	//~ while ($data = $posts->fetch())
-	//~ {
+	$first = "1";
+	while ($data = $articles->fetch()) // affichage des articles
+	{
+		if ($first == "1")
+		{
+		?>
+			<div class="cell auto">
+				<h4><?= htmlspecialchars($data['post_category']) ?></h4><br/>
+			    <h3><?= htmlspecialchars($data['post_title']) ?></h3><br/>
+			    
+			    <p>
+				    <?= nl2br(truncate($data['post_content'], 600)) ?>
+				    <br/>
+			    </p><br/><br/>
+			    <h4><a href="<?= $data['post_name'] ?>">Laisser un commentaire</a></h4><br/><br/><br/>
+			</div>
+		<?php
+			$first = "0";
+		}
+		else {
+		?>
+			<div class="cell small-auto medium-3">
+			    <h3><?= htmlspecialchars($data['post_title']) ?></h3><br/>
+			    
+			    <p>
+				    <?= nl2br(truncate($data['post_content'], 150)) ?>
+				    <br/>
+			    </p><br/><br/>
+			    <h4><a href="<?= $data['post_name'] ?>">Laisser un commentaire</a></h4><br/><br/>
+			</div>
+		<?php
+		}
+	}
+	$articles->closeCursor();
 	?>
-<!--
-		<div class="news">
-		    <h3>
-				<?= htmlspecialchars($data['title']) ?>
-				<em>le <?php echo $data['creation_date_fr']; ?></em>
-		    </h3>
-		    
-		    <p>
-			    <?= nl2br(htmlspecialchars($data['content'])) ?>
-			    <br />
-			    <em><a href="index.php?action=comments&post=<?= $data['id'] ?>">Commentaires</a></em>
-		    </p>
-		</div>
--->
-	<?php
-	//~ } // Fin de la boucle des billets
-	//~ $posts->closeCursor();
-	?>
-	
+</div> 
+
+
 <?php $content= ob_get_clean(); ?>
 
 <?php
