@@ -7,6 +7,8 @@ function homePage()
 	$articleRepository = new ArticleRepository();
 	$articles = $articleRepository->getArticles();
 	
+	//~ var_dump($articles);
+	
 	require('views/frontend/homePageView.php');
 }
 

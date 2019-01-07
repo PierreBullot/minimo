@@ -23,9 +23,33 @@ class ArticleRepository extends Repository
 		//~ return $inserted;
 	//~ }
 	
-	public function getArticles()
+	public function getArticles() //récupère les 7 articles publiés les plus récents avec leur image associée, l'article le plus récent en premier
 	{
-		$req = $this->_db->query('SELECT id, post_author, post_title, post_content, post_status, post_name, post_category, DATE_FORMAT(post_date, \'%d/%m/%Y à %Hh%imin%ss\') AS post_date_fr FROM posts WHERE post_type="article" ORDER BY post_date DESC LIMIT 0, 5');
+		$req = $this->_db->prepare(
+			'SELECT articles.id AS id, 
+					articles.post_author AS author, 
+					articles.post_title AS title, 
+					articles.post_content AS content, 
+					articles.post_status AS status, 
+					articles.post_name AS name, 
+					articles.post_category AS category, 
+					posts.post_title AS alt, 
+					posts.post_name AS picture 
+			FROM (	SELECT * 
+					FROM (	SELECT id, post_author, post_title, post_content, post_status, post_name, post_category, post_date 
+							FROM posts 
+							WHERE post_type="article" AND post_status="publish" 
+							ORDER BY post_date DESC LIMIT 0, 7) 
+					AS recents 
+					LEFT JOIN posts_posts 
+					ON recents.id = posts_posts.post_id1) 
+			AS articles 
+			LEFT JOIN posts 
+			ON articles.post_id2 = posts.id
+			ORDER BY articles.post_date DESC'
+		);
+		
+		$req->execute();
 		
 		return $req;
 	}
