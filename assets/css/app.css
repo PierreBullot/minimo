@@ -31,6 +31,18 @@ h4 a {
 	max-width: 84%;
 }
 
+.cell img {
+	margin:auto;
+}
+
+.main-image {
+	margin:auto;
+	position: relative;
+	height:25em;
+	left: -2.5%;
+    max-width: 106%;
+}
+
 .menu {
 	text-transform:uppercase;
 	font-family: 'Playfair Display', serif;
