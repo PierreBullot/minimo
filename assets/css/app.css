@@ -3,6 +3,21 @@ body{
 	color:#626262;
 }
 
+button {
+	display:block;
+	margin:auto;
+	background-color: white;
+	border: 1px solid black;
+	color: #626262;
+	padding: 15px 25px;
+	text-align: center;
+	font-size: 16px;
+}
+
+button:hover {
+	background-color: #b4ad9e;
+}
+
 footer {
 	background-color:#F0F0F0;
 }
@@ -36,11 +51,10 @@ h4 a {
 }
 
 .main-image {
-	margin:auto;
-	position: relative;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
 	height:25em;
-	left: -2.5%;
-    max-width: 106%;
 }
 
 .menu {
@@ -52,6 +66,17 @@ h4 a {
 .menu a {
 	margin-left:4rem;
 	color:#626262;
+}
+
+.newsletter {
+	background-color:#F0F0F0;
+	color:black;
+	text-align:center;
+}
+
+.newsletter input {
+	max-width:500px;
+	margin:auto;
 }
 
 .top-bar {

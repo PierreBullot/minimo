@@ -3,28 +3,29 @@
 <?php ob_start(); ?>
 
 
-<div class="grid-container">
-	<div class="grid-x grid-margin-x">
-		<?php
-		$first = "1";
-		while ($data = $articles->fetch()) // affichage des articles
+<?php
+$first = "1";
+$number = "1"; //utilisé pour la newsletter
+while ($data = $articles->fetch()) // affichage des articles
+{
+	if ($first == "1") //article mis en avant
+	{
+		$paragraph = explode("\n", $data['content']);
+		if (isset($data['picture']))
 		{
-			if ($first == "1") //article mis en avant
-			{
-				$paragraph = explode("\n", $data['content']);
-				if (isset($data['picture']))
-				{
-				?>	
-					<img class="main-image" src="assets/images/<?= htmlspecialchars($data['picture']) ?>" alt="<?= htmlspecialchars($data['alt']) ?>" />
-				<?php
-				}
-				else
-				{
-				?>	
-					<img src="https://via.placeholder.com/800x450.png?text=Aucune+image+principale+choisie+pour+cet+article." alt="<?= htmlspecialchars($data['pictures.post_title']) ?>" />
-				<?php	
-				}
-				?>
+		?>	
+			<img class="main-image" src="assets/images/<?= htmlspecialchars($data['picture']) ?>" alt="<?= htmlspecialchars($data['alt']) ?>" />
+		<?php
+		}
+		else
+		{
+		?>	
+			<img class="main-image" src="https://via.placeholder.com/800x450.png?text=Aucune+image+principale+choisie+pour+cet+article." alt="<?= htmlspecialchars($data['pictures.post_title']) ?>" />
+		<?php	
+		}
+		?>
+		<div class="grid-container">
+			<div class="grid-x grid-margin-x">
 				<div class="cell small-12">
 					
 					<br/><br/><br/><br/>
@@ -38,24 +39,46 @@
 				    <h4><a href="<?= $data['name'] ?>">Laisser un commentaire</a></h4><br/><br/><br/>
 				    <br/><br/>
 				</div>
-			<?php
-				$first = "0";
-			}
-			else { //affiche les articles sous forme de liste
-			?>
-				<div class="cell small-auto medium-6">
-					<?php
-					include('articleView.php');
-					?>	
-				</div>
-			<?php
-			}
-		}
-		$articles->closeCursor();
+		<?php
+		$first = "0";
+	}
+	else  //affiche les articles sous forme de liste
+	{
+		if ($number == "5") //block de la newsletter
+		{
 		?>
+			</div>
+			</div>
+				<?php
+					include('newsletterView.php');
+				?>
+			<div class="grid-container">
+			<div class="grid-x grid-margin-x">
+		<?php
+		}
+		?>
+			<div class="cell small-auto medium-6">
+				<?php
+				include('articlePreView.php');
+				?>
+			</div>
+		<?php
+		$number++;
+	}
+}
+$articles->closeCursor();
+?>
 	</div>
-</div> 
+</div>
 
+<div class="grid-container">
+	<div class="grid-x grid-margin-x" id="morepost">
+			
+	</div>	
+</div>	
+<div id="loadbutton">
+	<br/><br/><button type="button" onclick="loadMore(<?= $number ?>)">Charger plus</button><br/><br/><br/><br/><br/><br/>
+</div>
 
 <?php $content= ob_get_clean(); ?>
 
