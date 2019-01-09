@@ -77,7 +77,7 @@ $articles->closeCursor();
 	</div>	
 </div>	
 <div id="loadbutton">
-	<br/><br/><button type="button" onclick="loadMore(<?= $number ?>)">Charger plus</button><br/><br/><br/><br/><br/><br/>
+	<br/><br/><button type="button" onclick="loadMore()">Charger plus</button><br/><br/><br/><br/><br/><br/>
 </div>
 
 <?php $content= ob_get_clean(); ?>

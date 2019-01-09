@@ -1,8 +1,9 @@
 <?php
+$amount = $_GET['q'] + 6;
 
 $db = new PDO('mysql:host=localhost;dbname=minimo;charset=utf8', 'admin', 'admin');
 
-$load = $db->query(
+$load = $db->prepare(
 	'SELECT articles.id AS id, 
 			articles.post_author AS author, 
 			articles.post_title AS title, 
@@ -16,7 +17,7 @@ $load = $db->query(
 			FROM (	SELECT id, post_author, post_title, post_content, post_status, post_name, post_category, post_date 
 					FROM posts 
 					WHERE post_type="article" AND post_status="publish" 
-					ORDER BY post_date DESC LIMIT 7, 2) 
+					ORDER BY post_date DESC LIMIT :amount, 2) 
 			AS recents 
 			LEFT JOIN posts_posts 
 			ON recents.id = posts_posts.post_id1) 
@@ -26,11 +27,25 @@ $load = $db->query(
 	ORDER BY articles.post_date DESC'
 );
 
+$load->bindValue(':amount', (int)$amount, PDO::PARAM_INT);
+$load->execute();
 
-var_dump($load);
+
+function truncate($string,$length=100,$append="&hellip;") {
+  $string = trim($string);
+
+  if(strlen($string) > $length) {
+    $string = wordwrap($string, $length);
+    $string = explode("\n", $string, 2);
+    $string = $string[0] . $append;
+  }
+
+  return $string;
+}
+
+
 while ($data = $load->fetch())
 {
-	echo 'test2';
 	echo '<div class="cell small-auto medium-6">';
 	if (isset($data['picture']))
 	{
