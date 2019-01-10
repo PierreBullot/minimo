@@ -1,5 +1,5 @@
 <?php
-$amount = $_GET['q'] + 6;
+$amount = $_GET['q'] + 7;
 
 $db = new PDO('mysql:host=localhost;dbname=minimo;charset=utf8', 'admin', 'admin');
 

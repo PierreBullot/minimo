@@ -46,15 +46,42 @@ h4 a {
 	max-width: 84%;
 }
 
+@media only screen and (min-width: 1300px) {
+	.grid-container {
+		max-width: 1200px;
+	}
+}
+
 .cell img {
-	margin:auto;
+	width:100%;
+	height:auto;
+}
+
+@media only screen and (max-width: 640px) {
+	.logo {
+		display:block;
+		margin-left:0.5em;
+		margin-bottom:1em;
+	}
 }
 
 .main-image {
 	display:block;
 	margin-left:auto;
 	margin-right:auto;
-	height:25em;
+	height:auto;
+}
+
+@media only screen and (min-width: 768px) {
+	.main-image {
+		height:25em;
+	}
+}
+
+@media only screen and (min-width: 1300px) {
+	.main-image {
+		height:35em;
+	}
 }
 
 .menu {
@@ -67,6 +94,14 @@ h4 a {
 	margin-left:4rem;
 	color:#626262;
 }
+
+@media only screen and (max-width: 750px) {
+	.menu a {
+		margin-left:0.5em;
+		margin-right:0.5em;
+	}
+}
+
 
 .newsletter {
 	background-color:#F0F0F0;

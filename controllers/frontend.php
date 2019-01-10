@@ -12,6 +12,14 @@ function homePage()
 	require('views/frontend/homePageView.php');
 }
 
+function categoryPages($category)
+{
+	$articleRepository = new ArticleRepository();
+	$articles = $articleRepository->getArticles($category);
+	
+	require('views/frontend/homePageView.php');
+}
+
 //~ function comments()
 //~ {
 	//~ $postRepository = new PostRepository();

@@ -1,17 +1,17 @@
+<br/><br/><br/>
 <div class="top-bar">
-	<br/><br/><br/><br/><br/><br/><br/>
 	<div class="top-bar-left">
-		<img src="assets/images/logo_minimo.png"/>
+		<a href="http://monsite.loc/minimo/index.php"><img class="logo" src="assets/images/logo_minimo.png" style="border:0;"/></a>
 	</div>
 	
 	<div class="top-bar-right">
 		<ul class="menu">
-			<li><a href="#">lifestyle</a></li>
-			<li><a href="#">photos</a></li>
-			<li><a href="#">musique</a></li>
-			<li><a href="#">visites</a></li>
+			<li><a href="http://monsite.loc/minimo/index.php?category=lifestyle">lifestyle</a></li>
+			<li><a href="http://monsite.loc/minimo/index.php?category=photos">photos</a></li>
+			<li><a href="http://monsite.loc/minimo/index.php?category=musique">musique</a></li>
+			<li><a href="http://monsite.loc/minimo/index.php?category=visites">visites</a></li>
 		</ul>
 	</div>
-	<br/><br/><br/><br/><br/><br/><br/>
 </div>
+<br/><br/><br/>
 

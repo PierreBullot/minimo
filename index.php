@@ -17,6 +17,13 @@ if (isset($_GET['deconnexion']))
 
 require('controllers/frontend.php');
 
-homePage();
+
+if (isset($_GET['category']))
+{
+	categoryPages($_GET['category']);
+}
+else{
+	homePage();
+}
 
 
