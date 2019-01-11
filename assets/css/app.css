@@ -3,17 +3,6 @@ body{
 	color:#626262;
 }
 
-button {
-	display:block;
-	margin:auto;
-	background-color: white;
-	border: 1px solid black;
-	color: #626262;
-	padding: 15px 25px;
-	text-align: center;
-	font-size: 16px;
-}
-
 button:hover {
 	background-color: #b4ad9e;
 }
@@ -109,9 +98,17 @@ h4 a {
 	text-align:center;
 }
 
-.newsletter input {
+.newsletter button, #e-mail {
+	border:none;
+	background-color:#F0F0F0;
+	-webkit-box-shadow:none;
+	box-shadow:none;
+}
+
+.newsletter form {
 	max-width:500px;
 	margin:auto;
+	border-bottom:1px solid black;
 }
 
 .top-bar {
@@ -123,9 +120,24 @@ h4 a {
 	margin-right:0.5em;
 }
 
+#e-mail {
+	padding:0;
+	margin-bottom:0;
+}
 
 #loadbutton{
 	text-align:center;
+}
+
+#loadbutton button {
+	display:block;
+	margin:auto;
+	background-color: white;
+	border: 1px solid black;
+	color: #626262;
+	padding: 15px 25px;
+	text-align: center;
+	font-size: 16px;
 }
 
 #social-media {

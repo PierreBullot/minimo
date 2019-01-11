@@ -73,16 +73,14 @@ while ($data = $articles->fetch()) // affichage des articles
 }
 $articles->closeCursor();
 ?>
-		</div>//end of grid-x
-	</div> //end of grid-container
+		</div> <!--end of grid-x-->
+	</div> <!--end of grid-container-->
 <?php
-if ($number == "8") // si 7 articles ont été affichés, ajoute le bouton "charger plus"
+if ($number == "7") // si 7 articles ont été affichés, ajoute le bouton "charger plus"
 {
 ?>
 	<div class="grid-container">
-		<div class="grid-x grid-margin-x" id="morepost">
-				
-		</div>	
+		<div id="morepost" class="grid-x grid-margin-x"></div>	
 	</div>	
 	<div id="loadbutton">
 		<br/><br/><button type="button" onclick="loadMore()">Charger plus</button><br/><br/><br/><br/><br/><br/>
